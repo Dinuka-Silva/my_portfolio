@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════════════
+   CYBERSECURITY DEVELOPER DESIGN SYSTEM v1.0
+   Cyberpunk · Neon Green & Cyan · Terminal Aesthetic
+   Fonts: Orbitron (Headings), JetBrains Mono (Body)
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  --background: #050505;
+  --surface: rgba(255, 255, 255, 0.05);
+  --primary: #00ff9f; /* Neon Green */
+  --accent: #00d9ff;  /* Cyan */
+  --text: #e5e5e5;
+  --text-dim: #a1a1aa;
+  --error: #ff4d4d;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--background);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--text);
+  font-family: 'JetBrains Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+
+/* ── Custom Utilities ── */
+@layer components {
+  .cyber-grid {
+    background-image: 
+      linear-gradient(rgba(0, 255, 159, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 159, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .neon-text {
+    text-shadow: 0 0 10px rgba(0, 255, 159, 0.5), 0 0 20px rgba(0, 255, 159, 0.3);
+  }
+
+  .neon-border {
+    border: 1px solid rgba(0, 255, 159, 0.3);
+    box-shadow: 0 0 15px rgba(0, 255, 159, 0.1);
+  }
+
+  .neon-border-cyan {
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    box-shadow: 0 0 15px rgba(0, 217, 255, 0.1);
+  }
+
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl transition-all duration-300;
+  }
+
+  .cyber-button {
+    @apply relative px-8 py-3 bg-transparent border-2 border-primary text-primary font-bold overflow-hidden transition-all duration-300 active:scale-95;
+    clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+  }
+
+  .cyber-button:hover {
+    @apply bg-primary text-background shadow-[0_0_20px_rgba(0,255,159,0.5)];
+  }
+
+  .cyber-button-cyan {
+    @apply relative px-8 py-3 bg-transparent border-2 border-accent text-accent font-bold overflow-hidden transition-all duration-300 active:scale-95;
+    clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+  }
+
+  .cyber-button-cyan:hover {
+    @apply bg-accent text-background shadow-[0_0_20px_rgba(0,217,255,0.5)];
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-6 py-32;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-6xl font-black mb-16 relative inline-block;
+  }
+
+  .section-title::after {
+    content: '';
+    @apply absolute -bottom-4 left-0 w-24 h-1 bg-primary;
+    box-shadow: 0 0 10px var(--primary);
+  }
+}
+
+/* ── Animations ── */
+@keyframes matrix {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.matrix-line {
+  position: absolute;
+  width: 1px;
+  height: 100px;
+  background: linear-gradient(transparent, var(--primary));
+  animation: matrix linear infinite;
+  opacity: 0.1;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb { 
+  @apply bg-zinc-800 rounded-full hover:bg-primary transition-colors; 
+}
+
+/* Selection */
+::selection {
+  background: var(--primary);
+  color: var(--background);
+}
