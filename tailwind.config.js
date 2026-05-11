@@ -7,16 +7,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        'background': '#020617',
-        'card': '#0f172a',
-        'primary': '#3b82f6',
-        'accent': '#8b5cf6',
-        'text-white': '#f8fafc',
-        'text-gray': '#94a3b8',
+        'background': 'var(--background)',
+        'surface': 'var(--surface)',
+        'primary': 'var(--primary)',
+        'accent': 'var(--accent)',
+        'text': 'var(--text)',
+        'text-dim': 'var(--text-dim)',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        heading: ['Space Grotesk', 'sans-serif'],
+        sans: ['JetBrains Mono', 'monospace'],
+        heading: ['Orbitron', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
       animation: {
