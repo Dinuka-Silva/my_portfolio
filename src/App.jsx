@@ -4,14 +4,15 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
+import Experience from './components/Experience';
 import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="relative min-h-screen bg-background text-text selection:bg-primary/30">
-      {/* Noise Texture Overlay */}
+    <div className="relative min-h-screen bg-background text-text selection:bg-primary/20">
+      {/* Subtle Noise Texture Overlay for Premium feel */}
       <div className="noise-overlay" />
       
       <Navbar />
@@ -20,6 +21,7 @@ function App() {
         <About />
         <Skills />
         <Projects />
+        <Experience />
         <Certifications />
         <Contact />
       </main>
