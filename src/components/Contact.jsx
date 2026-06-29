@@ -1,77 +1,80 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { SectionLabel } from './About';
-import { Linkedin, Github, Instagram, ArrowRight } from 'lucide-react';
+import { Linkedin, Github, Instagram, Link2, Send, Terminal } from 'lucide-react';
 
 const Contact = () => {
   const socials = [
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/dinuka-silva-8748b5362/", icon: Linkedin, hoverBorder: '#0a66c2', hoverBg: 'rgba(10,102,194,0.1)' },
-    { label: "GitHub", href: "https://github.com/Dinuka-Silva", icon: Github, hoverBorder: '#93c5fd', hoverBg: 'rgba(147,197,253,0.1)' },
-    { label: "Instagram", href: "https://www.instagram.com/dinuka_10_", icon: Instagram, hoverBorder: '#e1306c', hoverBg: 'rgba(225,48,108,0.1)' },
+    { 
+      label: "LinkedIn", 
+      username: "Dinuka Silva",
+      href: "https://www.linkedin.com/in/dinuka-silva-8748b5362/", 
+      icon: Link2, 
+      colorBg: "bg-blue-600/20", 
+      iconColor: "text-blue-400" 
+    },
+    { 
+      label: "GitHub", 
+      username: "@DinukaSilva",
+      href: "https://github.com/Dinuka-Silva", 
+      icon: Terminal, 
+      colorBg: "bg-surface-variant", 
+      iconColor: "text-on-surface" 
+    },
+    { 
+      label: "Instagram", 
+      username: "@dinuka_10_",
+      href: "https://www.instagram.com/dinuka_10_/", 
+      icon: Instagram, 
+      colorBg: "bg-pink-600/20", 
+      iconColor: "text-pink-400" 
+    }
   ];
 
   return (
-    <section id="contact" className="section-container relative"
-             style={{ background: '#050d1a', borderTop: '1px solid rgba(59, 130, 246, 0.1)' }}>
-      {/* Decorative Blur Spheres */}
-      <div className="absolute bottom-0 right-10 w-80 h-80 blur-[100px] rounded-full pointer-events-none"
-           style={{ background: 'rgba(59, 130, 246, 0.08)' }} />
-
-      <div className="max-w-2xl mx-auto text-center relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-col items-center"
-        >
-          <SectionLabel center color="#38bdf8">Contact</SectionLabel>
-          <h2 className="text-3xl sm:text-4xl font-extrabold mb-5 tracking-tight" style={{ color: '#e0f2fe' }}>Let's Work Together</h2>
-          <p className="text-base sm:text-lg mb-10 max-w-xl leading-relaxed" style={{ color: '#93c5fd' }}>
-            I'm currently open to internship opportunities, freelance projects, and collaborations. Feel free to reach out — I'd love to connect!
+    <section 
+      id="contact" 
+      className="px-6 md:px-8 max-w-6xl mx-auto py-24 relative z-10"
+    >
+      <div className="glass-card rounded-3xl p-8 md:p-12 overflow-hidden relative border border-glass-stroke">
+        <div className="relative z-10 max-w-2xl">
+          <span className="font-label-caps text-primary tracking-[0.2em] text-xs">CONTACT</span>
+          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-on-surface mt-2 mb-6">
+            Let's Work Together
+          </h2>
+          <p className="text-lg text-on-surface-variant mb-12">
+            I'm currently looking for new opportunities and interesting collaborations. Feel free to reach out — I'd love to connect!
           </p>
-        </motion.div>
 
-        {/* 3-Column Social Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
-          {socials.map((s) => (
-            <motion.a 
-              key={s.label} 
-              href={s.href} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              whileHover={{ y: -4 }}
-              className="flex flex-col items-center gap-3 p-6 rounded-2xl transition-all duration-300 hover:shadow-blue-md group"
-              style={{
-                background: 'rgba(15, 30, 60, 0.6)',
-                border: '1px solid rgba(59, 130, 246, 0.15)',
-              }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = s.hoverBorder; e.currentTarget.style.background = s.hoverBg; }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.15)'; e.currentTarget.style.background = 'rgba(15, 30, 60, 0.6)'; }}
-            >
-              <span className="group-hover:scale-110 transition-transform duration-200" style={{ color: '#60a5fa' }}>
-                <s.icon size={26} />
-              </span>
-              <span className="font-bold text-sm" style={{ color: '#e0f2fe' }}>{s.label}</span>
-            </motion.a>
-          ))}
-        </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {socials.map((s) => (
+              <a 
+                key={s.label}
+                href={s.href} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-4 p-6 bg-surface-container/50 rounded-2xl hover:bg-surface-container transition-all group"
+              >
+                <div className={`w-12 h-12 rounded-xl ${s.colorBg} flex items-center justify-center`}>
+                  <s.icon className={s.iconColor} size={22} />
+                </div>
+                <div>
+                  <p className="font-bold text-on-surface text-sm">{s.label}</p>
+                  <p className="text-xs text-on-surface-variant">{s.username}</p>
+                </div>
+              </a>
+            ))}
+          </div>
 
-        {/* Facebook CTA */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-        >
           <a 
             href="https://www.facebook.com/dinukaavindra" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 text-white font-bold rounded-xl shadow-blue-lg transition-all duration-200 active:scale-95 cursor-pointer"
-            style={{ background: 'linear-gradient(135deg, #2563eb, #3b82f6)' }}
+            className="w-full mt-8 bg-gradient-to-r from-primary-container to-secondary-container text-white font-bold py-6 rounded-2xl shadow-xl hover:shadow-[0_0_30px_rgba(34,211,238,0.2)] transition-all flex items-center justify-center gap-3 cursor-pointer active:scale-95 duration-200"
           >
-            Say Hello on Facebook <ArrowRight size={16} />
+            Say Hello on Facebook
+            <Send size={18} />
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

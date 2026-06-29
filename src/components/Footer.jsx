@@ -1,26 +1,37 @@
 import React from 'react';
 
 const Footer = () => (
-  <footer className="py-8 text-center"
-          style={{
-            background: '#050d1a',
-            borderTop: '1px solid rgba(59, 130, 246, 0.1)',
-          }}>
-    <div className="max-w-6xl mx-auto px-6">
-      <p className="text-xs sm:text-sm font-semibold" style={{ color: 'rgba(96, 165, 250, 0.5)' }}>
-        © 2026 Dinuka Silva · Built with React & Tailwind ·{" "}
+  <footer className="w-full py-12 px-8 border-t border-glass-stroke bg-surface-container-lowest relative z-10">
+    <div className="flex flex-col md:flex-row justify-between items-center gap-6 max-w-6xl mx-auto">
+      <p className="font-label-code text-xs text-on-surface-variant">
+        © 2026 Dinuka Silva. Built with Precision.
+      </p>
+      <div className="flex gap-8 text-sm">
         <a 
           href="https://github.com/Dinuka-Silva" 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="font-bold transition-colors ml-1"
-          style={{ color: '#60a5fa' }}
-          onMouseEnter={e => e.currentTarget.style.color = '#93c5fd'}
-          onMouseLeave={e => e.currentTarget.style.color = '#60a5fa'}
+          className="text-on-surface-variant hover:text-cyan-glow transition-colors font-medium"
         >
           GitHub
         </a>
-      </p>
+        <a 
+          href="https://www.linkedin.com/in/dinuka-silva-8748b5362/" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="text-on-surface-variant hover:text-cyan-glow transition-colors font-medium"
+        >
+          LinkedIn
+        </a>
+        <a 
+          href="https://www.instagram.com/dinuka_10_/" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="text-on-surface-variant hover:text-cyan-glow transition-colors font-medium"
+        >
+          Instagram
+        </a>
+      </div>
     </div>
   </footer>
 );

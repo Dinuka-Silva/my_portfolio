@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Github } from 'lucide-react';
+import { Menu, X, Github, Terminal } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
@@ -22,24 +22,21 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ${
-      scrolled 
-        ? 'py-4 border-b shadow-lg' 
-        : 'bg-transparent py-6'
-    }`}
-    style={scrolled ? {
-      background: 'rgba(5, 13, 26, 0.85)',
-      backdropFilter: 'blur(16px)',
-      borderColor: 'rgba(59, 130, 246, 0.15)',
-    } : {}}>
+    <nav 
+      className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ${
+        scrolled 
+          ? 'py-4 border-b border-glass-stroke shadow-lg bg-glass-bg backdrop-blur-md' 
+          : 'bg-transparent py-6'
+      }`}
+    >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <a 
-          href="#home" 
-          className="text-2xl font-extrabold tracking-tight transition-opacity hover:opacity-95"
-          style={{ color: '#60a5fa' }}
+          href="#hero" 
+          className="flex items-center gap-2 font-display text-2xl font-extrabold tracking-tighter transition-opacity hover:opacity-90"
         >
-          Dinuka<span style={{ color: '#38bdf8' }}>.</span>
+          <Terminal size={22} className="text-primary animate-pulse" />
+          <span className="text-on-surface">Dinuka<span className="text-primary">.</span></span>
         </a>
 
         {/* Desktop Navigation Links */}
@@ -48,10 +45,7 @@ const Navbar = () => {
             <a
               key={link.id}
               href={`#${link.id}`}
-              className="text-sm font-semibold px-4 py-2 rounded-lg transition-all duration-200"
-              style={{ color: '#93c5fd' }}
-              onMouseEnter={e => { e.currentTarget.style.color = '#60a5fa'; e.currentTarget.style.background = 'rgba(59, 130, 246, 0.1)'; }}
-              onMouseLeave={e => { e.currentTarget.style.color = '#93c5fd'; e.currentTarget.style.background = 'transparent'; }}
+              className="font-label-code text-sm font-medium px-4 py-2 rounded-lg text-on-surface-variant hover:text-primary hover:bg-glass-stroke/50 transition-all duration-200"
             >
               {link.name}
             </a>
@@ -64,8 +58,7 @@ const Navbar = () => {
             href="https://github.com/Dinuka-Silva" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="inline-flex items-center gap-2 px-5 py-2.5 text-white font-semibold rounded-lg text-sm transition-all duration-200 hover:shadow-md active:scale-95"
-            style={{ background: 'linear-gradient(135deg, #2563eb, #3b82f6)' }}
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-on-primary font-label-code font-bold rounded-lg text-sm transition-all duration-200 hover:shadow-[0_0_20px_rgba(173,198,255,0.3)] active:scale-95"
           >
             GitHub <span className="text-xs">↗</span>
           </a>
@@ -73,8 +66,7 @@ const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button 
-          className="md:hidden transition-colors p-2"
-          style={{ color: '#93c5fd' }}
+          className="md:hidden transition-colors p-2 text-on-surface-variant hover:text-primary"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle Menu"
         >
@@ -90,22 +82,14 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 w-full shadow-lg py-6 px-8 flex flex-col gap-4 md:hidden z-50"
-            style={{
-              background: 'rgba(5, 13, 26, 0.95)',
-              backdropFilter: 'blur(16px)',
-              borderBottom: '1px solid rgba(59, 130, 246, 0.15)',
-            }}
+            className="absolute top-full left-0 w-full shadow-lg py-6 px-8 flex flex-col gap-4 md:hidden z-50 border-b border-glass-stroke bg-glass-bg backdrop-blur-xl"
           >
             <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <a
                   key={link.id}
                   href={`#${link.id}`}
-                  className="text-base font-semibold py-3 px-4 rounded-xl transition-all"
-                  style={{ color: '#93c5fd' }}
-                  onMouseEnter={e => { e.currentTarget.style.color = '#60a5fa'; e.currentTarget.style.background = 'rgba(59, 130, 246, 0.1)'; }}
-                  onMouseLeave={e => { e.currentTarget.style.color = '#93c5fd'; e.currentTarget.style.background = 'transparent'; }}
+                  className="font-label-code text-base font-semibold py-3 px-4 rounded-xl text-on-surface-variant hover:text-primary hover:bg-glass-stroke/50 transition-all"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
@@ -113,14 +97,13 @@ const Navbar = () => {
               ))}
             </div>
             
-            <div className="w-full h-[1px] my-2" style={{ background: 'rgba(59, 130, 246, 0.15)' }} />
+            <div className="w-full h-[1px] bg-glass-stroke" />
             
             <a 
               href="https://github.com/Dinuka-Silva" 
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full text-white text-center font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all"
-              style={{ background: 'linear-gradient(135deg, #2563eb, #3b82f6)' }}
+              className="w-full bg-primary text-on-primary text-center font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all"
               onClick={() => setIsOpen(false)}
             >
               <Github size={18} />

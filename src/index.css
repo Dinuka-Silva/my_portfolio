@@ -11,48 +11,53 @@
    ═══════════════════════════════════════════════════════════ */
 
 :root {
-  /* ── Backgrounds ── */
-  --background:   #050d1a;   /* deepest midnight blue       */
-  --bg-hero:      #0a1628;   /* hero section wash           */
-  --bg-section:   #081225;   /* alt sections – dark navy    */
-  --bg-deep:      #020810;   /* darkest contrast            */
-  --surface:      rgba(15, 30, 60, 0.65); /* glass surface  */
+  /* ── Backgrounds & Theme ── */
+  --background:   #000000;   /* Pure Black background */
+  --bg-hero:      #000000;
+  --bg-section:   #000000;
+  --bg-deep:      #000000;
+  --surface:      rgba(0, 0, 0, 0.6); /* glass surface */
 
-  /* ── Blue Spectrum ── */
-  --navy:         #1e3a8a;   /* blue-900  deep navy         */
-  --sapphire:     #1d4ed8;   /* blue-700  sapphire          */
-  --primary:      #3b82f6;   /* blue-500  primary blue      */
-  --royal:        #2563eb;   /* blue-600  royal blue        */
-  --electric:     #60a5fa;   /* blue-400  electric blue     */
-  --sky:          #38bdf8;   /* sky-400   sky blue          */
-  --cornflower:   #93c5fd;   /* blue-300  cornflower        */
-  --powder:       #bfdbfe;   /* blue-200  powder blue       */
-  --ice:          #dbeafe;   /* blue-100  ice blue          */
-  --frost:        #eff6ff;   /* blue-50   frost             */
-  --mist:         #f0f9ff;   /* sky-50    mist              */
+  /* ── Brand Colors ── */
+  --primary:      #adc6ff;   /* Electric Blue (very light) */
+  --secondary:    #7bd0ff;   /* Cyan */
+  --tertiary:     #c0c1ff;   /* Indigo/purple */
+  --cyan-glow:    #22D3EE;
+
+  /* ── Blue Spectrum mapping to retain compatibility ── */
+  --navy:         #000000;
+  --sapphire:     #000000;
+  --royal:        #4d8eff;
+  --electric:     #adc6ff;
+  --sky:          #7bd0ff;
+  --cornflower:   #c2c6d6;
+  --powder:       #d8e2ff;
+  --ice:          #dae3f6;
+  --frost:        #eff6ff;
+  --mist:         #f0f9ff;
 
   /* ── Text ── */
-  --text:         #e0f2fe;   /* sky-100  – primary text     */
-  --text-dim:     #93c5fd;   /* blue-300 – secondary text   */
-  --text-subtle:  #60a5fa;   /* blue-400 – tertiary text    */
-  --text-on-dark: #f0f9ff;   /* blue-50  – on dark bg       */
+  --text:         #dae3f6;
+  --text-dim:     #c2c6d6;
+  --text-subtle:  #8c909f;
+  --text-on-dark: #dae3f6;
 
   /* ── Borders ── */
-  --border:       rgba(59, 130, 246, 0.25);  /* blue-500/25 */
-  --border-light: rgba(96, 165, 250, 0.15);  /* blue-400/15 */
+  --border:       rgba(255, 255, 255, 0.1);
+  --border-light: rgba(255, 255, 255, 0.05);
 
-  --error: #ef4444;
+  --error: #ffb4ab;
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--background);
+  background-color: #000000;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--background);
+  background-color: #000000;
   color: var(--text);
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -80,11 +85,15 @@ h1, h2, h3, h4, h5, h6 {
     @apply max-w-6xl mx-auto px-6 py-24;
   }
 
-  /* Reusable glass card – dark blue glass */
+  /* Reusable glass card – frosted glassmorphic card */
   .glass-card {
-    @apply backdrop-blur-md rounded-2xl shadow-sm hover:shadow-md transition-all duration-300;
-    background: rgba(15, 30, 60, 0.65);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    @apply backdrop-blur-md rounded-2xl shadow-sm transition-all duration-300;
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .glass-card:hover {
+    border-color: rgba(34, 211, 238, 0.4);
+    transform: translateY(-4px);
   }
 
   /* Primary CTA button – Bright Blue */
@@ -152,9 +161,9 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ── Custom Scrollbar – dark blue ── */
 ::-webkit-scrollbar        { width: 8px; }
-::-webkit-scrollbar-track  { background: #050d1a; }
+::-webkit-scrollbar-track  { background: #000000; }
 ::-webkit-scrollbar-thumb  {
-  background: rgba(59, 130, 246, 0.35);
+  background: rgba(173, 198, 255, 0.35);
   border-radius: 99px;
 }
 ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
@@ -162,5 +171,15 @@ h1, h2, h3, h4, h5, h6 {
 /* ── Selection ── */
 ::selection {
   background: var(--primary);
-  color: #ffffff;
+  color: #002e6a;
+}
+
+/* ── Background Orbs for Parallax ── */
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+  opacity: 0.15;
+  pointer-events: none;
 }
