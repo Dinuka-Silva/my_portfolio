@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Terminal, Code } from 'lucide-react';
 import profileImg from '../assets/profile.png';
 
-const ROLES = ["Software Engineer", "React & Node.js Dev"];
+const ROLES = ["Software Engineer Intern", "React & Node.js Dev"];
 
 function useTypewriter(words, speed = 80, pause = 1800) {
   const [display, setDisplay] = useState("");
