@@ -68,7 +68,7 @@ const Hero = () => {
           </div>
 
           <p className="font-body-lg text-on-surface-variant max-w-lg leading-relaxed">
-            Aspiring IT professional with a passion for building secure, scalable software. I enjoy working across the full stack — from clean UIs to robust backends.
+            Aspiring IT professional with a passion for building scalable software. I enjoy building clean UIs and robust backends.
           </p>
 
           <div className="flex flex-wrap gap-4 pt-4">
