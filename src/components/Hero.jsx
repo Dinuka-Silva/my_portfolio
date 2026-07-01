@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Terminal, Code } from 'lucide-react';
 import profileImg from '../assets/profile.png';
 
-const ROLES = ["Full-Stack Developer", "Security Researcher", "Software Engineer", "React & Node.js Dev"];
+const ROLES = ["Software Engineer", "React & Node.js Dev"];
 
 function useTypewriter(words, speed = 80, pause = 1800) {
   const [display, setDisplay] = useState("");
@@ -20,10 +20,10 @@ function useTypewriter(words, speed = 80, pause = 1800) {
         else setCharIdx(c => c + 1);
       } else {
         setDisplay(current.slice(0, charIdx - 1));
-        if (charIdx - 1 === 0) { 
-          setDeleting(false); 
-          setWordIdx(w => (w + 1) % words.length); 
-          setCharIdx(0); 
+        if (charIdx - 1 === 0) {
+          setDeleting(false);
+          setWordIdx(w => (w + 1) % words.length);
+          setCharIdx(0);
         }
         else setCharIdx(c => c - 1);
       }
@@ -37,8 +37,8 @@ const Hero = () => {
   const role = useTypewriter(ROLES);
 
   return (
-    <section 
-      id="home" 
+    <section
+      id="home"
       className="px-6 md:px-8 max-w-6xl mx-auto pt-32 pb-24 md:pt-40 md:pb-32 relative z-10"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -72,14 +72,14 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-wrap gap-4 pt-4">
-            <a 
+            <a
               href="#projects"
               className="bg-primary text-on-primary font-label-code font-bold px-8 py-4 rounded-lg shadow-[0_0_20px_rgba(173,198,255,0.2)] hover:shadow-[0_0_30px_rgba(173,198,255,0.4)] transition-all flex items-center gap-2 active:scale-95 duration-200"
             >
               View Projects
               <ArrowRight size={16} />
             </a>
-            <a 
+            <a
               href="#contact"
               className="bg-glass-bg text-on-surface font-label-code font-bold px-8 py-4 rounded-lg border border-glass-stroke hover:border-cyan-glow/50 transition-all active:scale-95 duration-200"
             >
@@ -107,10 +107,10 @@ const Hero = () => {
         <div className="relative group max-w-md mx-auto w-full">
           <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-secondary/20 blur-3xl opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
           <div className="relative rounded-2xl overflow-hidden border border-glass-stroke glass-card aspect-[4/5] hover:scale-[1.02] transition-transform duration-300">
-            <img 
-              alt="Dinuka Silva Profile" 
-              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-750" 
-              src={profileImg} 
+            <img
+              alt="Dinuka Silva Profile"
+              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-750"
+              src={profileImg}
             />
             <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background to-transparent">
               <p className="font-label-code text-cyan-glow text-sm mb-1"># Software Engineering</p>

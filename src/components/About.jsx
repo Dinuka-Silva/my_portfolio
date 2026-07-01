@@ -6,8 +6,6 @@ const About = () => {
   const values = [
     { icon: Target, title: "Goal-Oriented", desc: "Focused on building software that solves real problems.", colorClass: "text-primary" },
     { icon: GraduationCap, title: "Always Learning", desc: "Continually expanding skills in new technologies.", colorClass: "text-secondary" },
-    { icon: Users, title: "Team Player", desc: "Collaboration and communication are core to how I work.", colorClass: "text-tertiary" },
-    { icon: Lock, title: "Security-Minded", desc: "Building with secure architectures from the ground up.", colorClass: "text-cyan-glow" },
   ];
 
   return (
